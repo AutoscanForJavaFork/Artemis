@@ -61,11 +61,13 @@ describe('Exercise Scores Component', () => {
             {
                 login: 'login1',
                 name: 'name1',
+                isInternal: true,
                 guidedTourSettings: [],
             },
             {
                 login: 'login2',
                 name: 'name2',
+                isInternal: true,
                 guidedTourSettings: [],
             },
         ],
@@ -250,6 +252,7 @@ describe('Exercise Scores Component', () => {
         participation.student = {
             login: 'login',
             name: 'name',
+            isInternal: true,
             guidedTourSettings: [],
         };
 

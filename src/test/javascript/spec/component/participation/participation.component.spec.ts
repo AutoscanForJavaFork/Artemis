@@ -90,7 +90,7 @@ describe('ParticipationComponent', () => {
         const theExercise = { ...exercise, type: ExerciseType.FILE_UPLOAD };
         const exerciseFindStub = jest.spyOn(exerciseService, 'find').mockReturnValue(of(new HttpResponse({ body: theExercise })));
 
-        const student: User = { guidedTourSettings: [], id: 1, login: 'student', name: 'Max', isInternal: true };
+        const student: User = { guidedTourSettings: [], id: 1, login: 'student', name: 'Max', internal: true };
         const participation: StudentParticipation = { id: 1, student };
         const participationFindStub = jest.spyOn(participationService, 'findAllParticipationsByExercise').mockReturnValue(of(new HttpResponse({ body: [participation] })));
 
@@ -113,7 +113,7 @@ describe('ParticipationComponent', () => {
         const theExercise = { ...exercise, type: ExerciseType.PROGRAMMING };
         const exerciseFindStub = jest.spyOn(exerciseService, 'find').mockReturnValue(of(new HttpResponse({ body: theExercise })));
 
-        const student: User = { guidedTourSettings: [], id: 1, login: 'student', name: 'Max', isInternal: true };
+        const student: User = { guidedTourSettings: [], id: 1, login: 'student', name: 'Max', internal: true };
         const participation: StudentParticipation = { id: 1, student };
         const participationFindStub = jest.spyOn(participationService, 'findAllParticipationsByExercise').mockReturnValue(of(new HttpResponse({ body: [participation] })));
 
@@ -150,7 +150,7 @@ describe('ParticipationComponent', () => {
     });
 
     it('should format student login or team name from participation', () => {
-        const student: User = { guidedTourSettings: [], id: 1, login: 'student', name: 'Max', isInternal: true };
+        const student: User = { guidedTourSettings: [], id: 1, login: 'student', name: 'Max', internal: true };
         const participation: StudentParticipation = { id: 123, student };
         expect(component.searchResultFormatter(participation)).toBe(`${student.login} (${student.name})`);
 
@@ -166,7 +166,7 @@ describe('ParticipationComponent', () => {
     });
 
     it('should return student login, team short name, or empty from participation', () => {
-        const student: User = { guidedTourSettings: [], id: 1, login: 'student', name: 'Max', isInternal: true };
+        const student: User = { guidedTourSettings: [], id: 1, login: 'student', name: 'Max', internal: true };
         const team: Team = { name: 'Team', shortName: 'T', students: [student] };
         const participation: StudentParticipation = { id: 123, student, team };
 
@@ -180,7 +180,7 @@ describe('ParticipationComponent', () => {
     });
 
     it('should filter participation by prop', () => {
-        const student: User = { guidedTourSettings: [], id: 1, login: 'student', name: 'Max', isInternal: true };
+        const student: User = { guidedTourSettings: [], id: 1, login: 'student', name: 'Max', internal: true };
         const team: Team = { name: 'Team', shortName: 'T', students: [student] };
         const participation: StudentParticipation = { id: 1, student, team };
 
